@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://biyjt0soijbp4"]
+
+[ext_resource type="Script" uid="uid://755hjtdrwy25" path="res://machine.gd" id="1_j4mng"]
+[ext_resource type="PackedScene" uid="uid://dlhcs52ptkbuq" path="res://oguri_cap.tscn" id="2_2xkly"]
+
+[node name="machine" type="Node2D"]
+script = ExtResource("1_j4mng")
+
+[node name="spin" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 69.0
+offset_right = 186.0
+offset_bottom = 116.0
+text = "spin"
+
+[node name="options" type="TextEdit" parent="."]
+offset_left = 21.0
+offset_top = 167.0
+offset_right = 284.0
+offset_bottom = 262.0
+text = "pizza
+ramen
+sushi
+burger
+other"
+
+[node name="reelcount" type="SpinBox" parent="."]
+offset_left = 23.0
+offset_top = 128.0
+offset_right = 109.563
+offset_bottom = 159.0
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="reelcontainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 388.0
+offset_right = 1153.0
+offset_bottom = 647.0
+alignment = 1
+
+[node name="reelcontainer" type="Node2D" parent="."]
+
+[node name="checkbox" type="CheckBox" parent="."]
+offset_left = 115.0
+offset_top = 127.0
+offset_right = 279.0
+offset_bottom = 158.0
+text = "roll until identical"
+
+[node name="oguri_cap" parent="." instance=ExtResource("2_2xkly")]
+position = Vector2(81, 384)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="spin" to="." method="_on_button_pressed"]
